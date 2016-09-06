@@ -20,3 +20,18 @@ remote_file 'SampleProject' do
   path "#{Chef::Config['file_cache_path']}/#{node[:unity3d][:installer][:sample][:filename]}"
   source "#{[:unity3d][:installer][:sample][:source]}"
 end
+
+package 'UnityEditor' do
+  source "#{Chef::Config['file_cache_path']}/#{node[:unity3d][:installer][:editor][:filename]}"
+  provider Chef::Provider::Package::Windows
+end
+
+package 'StandardAssets' do
+  source "#{Chef::Config['file_cache_path']}/#{node[:unity3d][:installer][:assets][:filename]}"
+  provider Chef::Provider::Package::Windows
+end
+
+package 'SampleProject' do
+  source "#{Chef::Config['file_cache_path']}/#{node[:unity3d][:installer][:sample][:filename]}"
+  provider Chef::Provider::Package::Windows
+end
