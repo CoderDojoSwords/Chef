@@ -23,15 +23,18 @@ end
 
 package 'UnityEditor' do
   source "#{Chef::Config['file_cache_path']}/#{node[:unity3d][:installer][:editor][:filename]}"
+  options "/S"
   provider Chef::Provider::Package::Windows
 end
 
 package 'StandardAssets' do
   source "#{Chef::Config['file_cache_path']}/#{node[:unity3d][:installer][:assets][:filename]}"
+  options "/S"
   provider Chef::Provider::Package::Windows
 end
 
 package 'SampleProject' do
   source "#{Chef::Config['file_cache_path']}/#{node[:unity3d][:installer][:sample][:filename]}"
+  options "/S"
   provider Chef::Provider::Package::Windows
 end
