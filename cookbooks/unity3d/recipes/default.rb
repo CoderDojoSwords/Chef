@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-unless node[:unity3d][:is_installed] do
+unless node[:unity3d][:is_installed] then
   remote_file 'UnityEditor' do
     path "#{Chef::Config['file_cache_path']}/#{node[:unity3d][:installer][:editor][:filename]}"
     source "#{node[:unity3d][:installer][:editor][:source]}"
